@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Home';
-import Repositories from './Repositories'
+import App from './App';
 
 ReactDOM.render(
     <App/>,
