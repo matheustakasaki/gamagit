@@ -1,10 +1,7 @@
 import React from 'react';
-import './App.css';
 import Routes from './routes';
 
 function App(props) {
-
-
   return (
     <>
      <Routes></Routes>
@@ -12,4 +9,5 @@ function App(props) {
   );
 }
 
-export default App;
+export default App
+
