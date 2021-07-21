@@ -3,25 +3,27 @@ import * as S from './styled'
 export default function Repositories() {
 
 
-    const [ repositories, setRepositories ] = useState([]);
+    const [repositories, setRepositories] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         let repositoriesName = localStorage.getItem('repositoriesName');
-        repositoriesName  = JSON.parse(repositoriesName);
+        repositoriesName = JSON.parse(repositoriesName);
         setRepositories(repositoriesName);
-        localStorage.clear();
+        // localStorage.clear();
     }, []);
-    
+
     return (
         <>
             <S.Title>Repositories</S.Title>
             <S.List>
-                { repositories.map( repository => {
-                    return(
-                        <S.ListItem> Repositório: { repository } </S.ListItem>
+                {repositories.map(repository => {
+                    return (
+                        <S.ListItem> Repositório: {repository} </S.ListItem>
                     )
                 })}
+
             </S.List>
+            <S.LinkHome to='/'>Voltar</S.LinkHome>
 
         </>
     )

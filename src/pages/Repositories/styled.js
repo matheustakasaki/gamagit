@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {Link} from 'react-router-dom' 
 export const Title = styled.h1`
     text-align: center;
     font-family: sans-serif;
@@ -21,3 +21,8 @@ color: #fff;
 padding: .5rem;
 `
 
+export const LinkHome = styled( Link)`
+    width: 4rem;
+    text-decoration: none;
+    text-align: center;
+`
