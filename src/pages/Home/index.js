@@ -5,7 +5,9 @@ import { useHistory } from 'react-router-dom';
 export default function App(props) {
 
     const history = useHistory();
-    const [usuario, setUsuario] = useState('')
+    const [ usuario, setUsuario] = useState('');
+    const [ erro,  setErro] = useState(false);
+
 
     function handlePesquisa() {
         axios.get(`https://api.github.com/users/${usuario}/repos`).then(response => {
@@ -15,8 +17,12 @@ export default function App(props) {
             repositories.map((repository) => {
                 repositoriesName.push(repository.name)
             });
+            setErro(false)
             localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName))
             history.push('/repositories')
+        })
+        .catch( err => {
+            setErro(true);
         })
     }
 
@@ -27,6 +33,8 @@ export default function App(props) {
                 <S.Input className="usuarioInput" placeholder="Usuário" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
                 <S.Button type="button" onClick={handlePesquisa}>Pesquisar</S.Button>
 
+                { erro ? <S.ErrorMessage>Erro parça</S.ErrorMessage> : ''}
+                
             </S.Container>
         </>
     );

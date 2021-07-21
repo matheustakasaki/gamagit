@@ -28,3 +28,10 @@ export const Button = styled.button`
     color: #fff;
     border-radius: 0 .25rem .25rem 0;
 `
+
+export const ErrorMessage = styled.p`
+    color: red;
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+`
